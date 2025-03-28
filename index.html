@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Custom Video Player</h2>
+        <input type="text" id="videoUrl" placeholder="Enter direct video link...">
+        <button onclick="loadVideo()">Load Video</button>
+        <video id="player" playsinline controls>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        const player = new Plyr('#player');
+        function loadVideo() {
+            const url = document.getElementById('videoUrl').value;
+            if (url) {
+                const video = document.getElementById('player');
+                video.src = url;
+                video.play();
+            } else {
+                alert("Please enter a valid video link.");
+            }
+        }
+    </script>
+</body>
+</html>
